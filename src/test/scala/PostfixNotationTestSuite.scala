@@ -7,6 +7,16 @@ class PostfixNotationTestSuite extends FlatSpec with Matchers{
     assert(true)
   }
 
+  /**
+    * Para la expresión 2 la cadena de evaluación es algo como esto:
+    *
+    * -> Nil
+    * -> (List(1), 1)
+    * -> (List(1, 2), 2)
+    * -> (List(3), 3)
+    * -> (List(3, 3), 3)
+    * -> (List(9), 9)
+    */
   it should "convert an expression to the infix form" in {
     val expr1 = for {
       _ <- StateExample.evalOne("1")
